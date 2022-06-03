@@ -1,74 +1,60 @@
 
 
 
+// Algoritmo para convertir una cantidad de pesos a dólares.
 
-let conversor = ( cantidadDePesos, precioDolar )=>{
+const convertirPesos = (cantidadPesos, valorDolar) =>  cantidadPesos / valorDolar
+let resultado = convertirPesos(1000, 200)
+console.log(resultado)
 
-    let cantidaDolares = cantidadDePesos / precioDolar
-    return cantidaDolares
+
+// CREAR UNA FUNCION QUE RECIBA 3 NUMEROS Y EN BASE AL PROMEDIO
+// DEVUELVA SI ESTA APROBADO O DESAPROBADO
+
+const calcularPromedio = ( num1, num2, num3 )=> {
+
+     
+    let suma = num1 + num2 + num3
+    let promedio = suma / 3
+
+    // if(promedio >= 7){
+    //     return "aprobado"
+    // }else{
+    //     return "desaprobado"
+    // }
+
+    return promedio >= 7 ? "aprobado" : "desaprobado"
 }
 
-let resultadoEnDolares = conversor(50000, 200)
-console.log(resultadoEnDolares)
+let promedio = calcularPromedio(6, 6, 10)
+console.log(promedio)
 
-
-let promediar = ( a, b, c)=>{
-
-    let suma = a + b + c
-    let promedio =  suma / 3
-   
-    if(promedio >= 7){
-        return "aprobado"
-    }else{
-        return "desaprobado"
-    }
-
-}
-
-let promedioFinal = promediar( 6, 6, 9 )
-console.log(promedioFinal)
-
-function nombre( numero ){
-
-    if(numero % 2 === 0){
-        return "es par"
-    }else if(numero % 2 !== 0){
-        return "no es par"
-    }else{
-        return "no puedo calcular eso"
-    }
-
-}
-
-
-//Elaborar un programa que permita ingresar un número entero del 1 al 12
+//Elaborar un programa que permita ingresar un número entero del 1 al 12 
 // y muestre la tabla de multiplicar de dicho número.
 
-const tablaMultiplicar = ( numero )=>{
+const multiplicar = numero =>{
 
-    if( numero % 1 !== 0){
-        console.log("no es un entero")
+    if(numero % 1 !== 0){
+        console.log("solo estan permitidos los numeros enteros")
         return
     }
-    
-    if(numero >= 1 && numero <= 12){
 
-        let resultado = 0
-        for(let i = 1 ; i <= 10 ; i++ ){
-            resultado = numero * i
-            console.log(`${numero} * ${i} = ${resultado}`)
+    if( numero >= 1 && numero <= 12){
+
+        for( let i = 1 ; i <= 10 ; i++){
+            console.log(`${numero} * ${i} = ${numero * i}`)
         }
 
-
     }else{
-        console.log("el numero no es valido") 
+        console.log("su numero no esta en el rango permitido")
     }
 
-
+   
 }
-tablaMultiplicar(1.5)
 
-for(let i = 0 ; i <= 5 ; i++ ){
-    console.log(`estoy dando la vuelta numero ${i}`)
-}
+multiplicar(3.5)
+
+// 7) Escribí un programa que itere sobre el arreglo nombres e imprima cada uno en la consola: const nombres = ["Pedro","Pablo", "Maria", "Juan", "Diana"];
+
+
 
