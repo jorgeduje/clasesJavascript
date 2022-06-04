@@ -54,7 +54,7 @@ const multiplicar = numero =>{
 
 multiplicar(3.5)
 
-// 7) Escribí un programa que itere sobre el arreglo nombres e imprima cada uno en la consola: const nombres = ["Pedro","Pablo", "Maria", "Juan", "Diana"];
+
 
 
 
