@@ -4,89 +4,74 @@
 // let arr = []
 // let obj = {}
 
-// COMPUESTOS POR PARES DE CLAVE Y VALOR 
-// Y PUEDEN TENER PROPIEDADES Y METODOS ( CARACTERISTICAS Y ACCIONES )
+// ESTAN COMPUESTOS POR PROPIEDADES Y METODOS
+    // PAR DE CLAVE : VALOR 
 
 let perro = {
 
-    color: "marron",
+    nombre: "pepito",
     raza: "callejero",
     edad: 2,
     ladrar: function(){
-        return "guauuu guauu"
+        return "guau guauuu"
     },
     saltar: function(){
         return "estoy saltando"
     },
-    hijo: {
-        nombre: "pepito"
+    decirEdad: function (){
+        return this.edad
     },
-    decirColor: function(){
-        return this.color
-    }
+    color: "marron"
 
 }
-console.log(perro.hijo.nombre)
 
+
+console.log( perro.decirEdad() )
 
 console.log(perro)
 
-perro.pelaje = "pelo corto"
-perro.edad = 1
-perro.hijo.nombre = "juanctio"
-perro.darMano = function(x){
-    
-    return x
-}
+perro.nombre = "pepito"
+perro.color = "marron"
+
 console.log(perro)
 
-console.log(perro.darMano("hola como estas"))
-
-
-console.log("-----------------------------------")
-console.log("-----------------------------------")
-console.log("-----------------------------------")
-
-// CREAR UN ESTUDIANTE Y ASIGNARLE NOMBRE, EDAD, Y NOTAS
-// ASIGNARLE UN METODO QUE DEVUELVA SU PROMEDIO
+// OBJETO PERSONA QUE TENGA NOMBRE, APELLIDO, EDAD, NOTAS, CALCULARPROMEDIO
 
 let promediar = function(){
-
-    let acumulador = 0
-
-    for(let i = 0; i < this.notas.length ; i++){
-        acumulador +=   this.notas[i]
+    let acc = 0
+    for( let i = 0; i < this.notas.length; i++){
+        acc += this.notas[i]
     }
-
-    return acumulador / this.notas.length
+    return acc / this.notas.length
 }
 
-let estudiantes = [
+// console.log(persona.calcularPromedio())
+// console.log(persona2.calcularPromedio())
+
+
+let arr = [2, 25, 12]
+
+let personas = [
+
     {
-        nombre: "juan quiroga",
-        edad: 18,
-        notas: [10, 9, 8, 5],
+
+        nombre: "maria",
+        apellido: "perez",
+        edad: 30,
+        notas: [10, 9, 8],
         calcularPromedio: promediar
     },
     {
-
-        nombre: "victoria quiroga",
-        edad: 18,
-        notas: [1, 1, 10],
+        nombre: "juanctio",
+        apellido: "perez",
+        edad: 30,
+        notas: [5, 2, 10],
         calcularPromedio: promediar
     }
-
 ]
 
 
-for (let i = 0; i < estudiantes.length; i++) {
-
-    if(estudiantes[i].calcularPromedio() >= 7){
-        console.log("aprobado")
-    }else{
-        console.log("desaprobado")
-    }
-    
-
+for(let i = 0; i < personas.length; i++){
+    console.log( `${personas[i].nombre} tiene un promedio de ${personas[i].calcularPromedio()}` )
 }
 
