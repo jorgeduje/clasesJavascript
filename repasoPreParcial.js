@@ -1,67 +1,77 @@
 
-
-const edades = [11, 5, 15, 18, 1, 18, 10, 33, 18, 2];
-// const edadesNuevas = [114, 12, 115, 158, 25, 22, 10, 323, 18, 5];
+const edades = [11, 12, 15, 18, 1, 22, 10, 33, 18, 5];
 
 // Obtener en un nuevo array las edades menores a 18.
 
-// funcion que recibe un arr 
-// crear un arrglo vacio
+// CREAR UNA FUNCION QUE RECIBA UN ARRAY
+// CREAR UN ARREGLO VACIO
+// RECORRER AL ARREGLO QUE RECIBI
+// COMPARAR CADA ELEMENTO CON EL NUMERO 18
+// SI ES MENOR LO PUSHEO A MI ARREGLO NUEVO
+// POR ULTIMO RETORNAR EL NUEVO ARREGLO 
 
-// recorrer el arreglo y comparar el elemento que viene en cada vuelta
-// con la condicion, si se cumple, agregar ese elemento al arreglo
-// debo retornar ese arreglo
 
-// const edades = [11, 5, 15, 18, 25, 18, 10, 33, 18, 2];
+let creadorDeArray = ( arr )=>{
+  
+  let arrayMenoresDe18 = []
 
-let arrDeEdadesMenores = []
-let arrMayores = []
-let arrIguales = []
+  for(let i = 0; i < arr.length ; i++){
 
-let creadorArr = ( arr )=>{
+    if( arr[i] == 18 ){
+      arrayMenoresDe18.push( arr[i] )
+    }
+  }
+  return arrayMenoresDe18
+}
+
+let x = creadorDeArray(edades)
+console.log( x )
+
+
+
+
+
+// calcular el total de la suma de todos los elementos del arreglo
+// const edades = [11, 12, 15, 18, 25, 22, 10, 33, 18, 5];
+
+let sumarElementos = ( arr )=>{
+
+  let acc = 0
 
   for (let i = 0; i < arr.length; i++) {
+   
+    acc += arr[i]
     
-    if( arr[i] < 18){
-      arrDeEdadesMenores.push( arr[i] )
-    }else if(arr[i]===18){
-      arrIguales.push( arr[i] )
-      
-    }else{
-      arrMayores.push( arr[i] )
+  }
 
+  return acc
+
+}
+
+console.log(sumarElementos(edades))
+
+
+// const edades = [11, 12, 15, 18, 1, 22, 10, 33, 18, 5];
+// OBTENER EL MENOR
+
+let extraerElMenor = ( arr )=>{
+
+  let menor = arr[0] // 11 // 10 // 5
+
+  for (let i = 1; i < arr.length; i++) {
+   
+    if( arr[i] < menor){
+      menor = arr[i]
     }
     
   }
-
-}
-
-console.log( creadorArr(edades) )
-console.log( arrMayores )
-console.log( arrIguales )
-console.log( arrDeEdadesMenores )
-
-// const edades = [11, 5, 15, 18, 1, 18, 10, 33, 18, 2];
-// el menor
-
-
-let encontrarMenor = ( arreglo )=>{
-
-  let menor = arreglo[0] // 5 // 2
-
-  for (let i = 0; i < arreglo.length; i++) {
-    
-    arreglo[i] < menor ? menor = arreglo[i] : null
-    
-  }
-
   return menor
 
-
 }
-console.log(encontrarMenor( edades ))
+console.log(extraerElMenor(edades))
 
-// Obtener en un nuevo array las edades menores a 30.
+
+
 
 const arrayCuentas =
 [
@@ -107,26 +117,64 @@ const arrayCuentas =
       edadTitular: 25,
       tipoCuenta: "corriente"
     }
+    ,
+    {
+      titular: "Harding Mitchell",
+      estaHabilitada: true,
+      saldo: "$1,408.68",
+      edadTitular: 25,
+      tipoCuenta: "pepito"
+    }
   ]
 
-  let arrSueldos = []
-  let arrCorrientes = []
-  let creadorArr2 = ( arr )=>{
 
-    for (let i = 0; i < arr.length; i++) {
+  // Obtener un nuevo array de cuentas cuyas edades sean menores a 30.
+
+
+  function extraerMenoresDe30( arreglo ){
+
+    let nuevoArr = []
+
+    for (let i = 0; i < arreglo.length; i++) {
       
-      if( arr[i].tipoCuenta === "sueldo"){
-        arrSueldos.push( arr[i] )
-      }else if(arr[i].tipoCuenta === "corriente"){
-        arrCorrientes.push( arr[i] )
-
+      if( arreglo[i].edadTitular < 30){
+        nuevoArr.unshift( arreglo[i] )
       }
       
     }
-  
-  }
-  creadorArr2(arrayCuentas)
 
-  console.log(arrSueldos)
-  console.log(arrCorrientes)
+    return nuevoArr
+
+  }
+
+console.log(   extraerMenoresDe30(arrayCuentas) )
+
+
+// Obtener un nuevo array por cada tipo de cuenta y agregarle sus elementos.
+
+let arrSueldo = []
+let arrCorriente = []
+
+let creadorArr = ( arr )=>{
+
+
+  for (let i = 0; i < arr.length; i++) {
+    
+    if( arr[i].tipoCuenta === "sueldo"){
+
+      arrSueldo.push( arr[i] )
+    }else if(arr[i].tipoCuenta === "corriente"){
+
+      arrCorriente.push(arr[i])
+    }
+    
+  }
+
+}
+
+creadorArr(arrayCuentas)
+console.log( "Sueldo", arrSueldo )
+console.log( "Corriente", arrCorriente )
+
+
 
