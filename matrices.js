@@ -1,93 +1,98 @@
 
 // WELCOME TO MATRICES 💪💪💪
 
+let numeros = [ 12, 15, 4]
 
-// MATRIZ CUADRADA de 3 X 3 
-let matrix = [
-    [4, 6, 12], //FILAS
-    [5, 4, 2], //FILAS
-    [1, 16, 7, 12, 4] //FILAS
+// console.log( numeros[1] )
+
+let matriz = [
+
+    [1, 5, 4], //FILAS
+    [2, 6, 1], //FILAS
+    [5, 7, 2] //FILAS
+    
 ]
 
-// console.log( matrix[1][0] )
-// console.log( matrix[1][1] )
-// console.log( matrix[1][2] )
+// 9
 
-// console.log( matrix[0][1] ) // primero fila, despues columna
-
-// RECORRER FILA posicion 1
+// TODO:
+// * Recorrer una fila
 
 let recorrerFila = ( mat )=>{
 
     let acc = 0
-
     for (let i = 0; i < mat[2].length; i++) {
-       
+
         acc += mat[2][i]
         
     }
     return acc
-
+   
 }
-console.log( recorrerFila(matrix) )
+console.log( recorrerFila(matriz) )
 
 
-// COLUMNA
+// * Recorrer una columna
 
-let matrix2 = [
-    [4, 6, 12], //FILAS 
-    [5, 4, 2], //FILAS
-    [1, 16] //FILAS
+// LINK 3 X 3 / CUADRADA
+let matriz2 = [
+
+    [1, 5, 4], //FILAS
+    [2, 6, 1], //FILAS
+    [5] //FILAS
+    
 ]
-console.table(matrix2)
+// 18
 
-// 21
-
-console.log( matrix2[0][2] )
-console.log( matrix2[1][2] )
-console.log( matrix2[2][2] )
-
-let recorrerCol = ( x )=>{
+let recorrerCol = ( mat )=>{
 
     let acc = 0
 
-    for (let i = 0; i < x.length; i++) {
-
-       if( x[i][2] !== undefined ){
-            acc += x[i][2]
-       }
+    for (let i = 0; i < mat.length; i++) {
+        
+        if( mat[i][1] !== undefined ){
+            acc += mat[i][1]
+        }
         
     }
     return acc
 
 }
-console.log( recorrerCol(matrix2) )
 
+console.log( recorrerCol(matriz2) )
 
+// * Recorrer la Matriz completa
 
+let matriz3 = [
 
-// MATRIZ COMPLETA
+    [1, 5, 4,14,25], //FILAS
+    [2, 6, 1], //FILAS
+    [5, 7], //FILAS
+    [5], //FILAS
+    [5], //FILAS
+    [5, 12], //FILAS
+    [5] //FILAS
+    
+]
 
-let arrMatriz = [
-    [4, 2, 3], 
-    [15, 7, 12],
-    [5, 2, 1],
-];
+// 33
 
-let recorrerMat = ( x )=>{
+let recorrerMat = ( mat )=>{
 
     let acc = 0
-    
-    for (let i = 0; i < x.length; i++) {
-        
-        for (let j = 0; j < x[i].length; j++) {
-           
-            acc += x[i][j]
 
-        } 
+    for (let i = 0; i < mat.length; i++) { // 3
+        
+        for (let j = 0; j < mat[i].length; j++) { // 3
+
+           acc+= mat[i][j]
+          
+        }
     }
-    
+
     return acc
 
 }
-console.log(recorrerMat(arrMatriz))
+
+console.log( recorrerMat(matriz3) )
+
