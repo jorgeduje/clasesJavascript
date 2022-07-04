@@ -197,3 +197,5 @@ const recorrerMat = mat => {
 
 recorrerMat(matrix)
 console.table( matrix )
+
+
