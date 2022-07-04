@@ -164,3 +164,36 @@ const secundaria = mat =>{
   }
 
 }
+
+// CAMBIAR TODOS LOS ELEMENTOS NEGATIVOS DE LA MATRIZ POR SU IGUAL PERO POSITIVO
+
+
+let matrix = [
+
+  [25, -31, 12],
+  [-10, 27, -13],
+  [10, -27, -21],
+
+];
+
+const recorrerMat = mat => {
+
+  for (let i = 0; i < mat.length; i++) {
+
+    for (let j = 0; j < mat[i].length; j++) {
+      
+
+      if( mat[i][j] < 0 ){
+
+        mat[i][j] = mat[i][j] * (- 1)
+
+      }
+
+    }
+    
+  }
+
+}
+
+recorrerMat(matrix)
+console.table( matrix )
