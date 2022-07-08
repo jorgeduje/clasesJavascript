@@ -17,6 +17,7 @@ let estudiantes = [
   },
 ];
 
+
 const ordenar = arr => {
 
   let aux;
@@ -24,7 +25,7 @@ const ordenar = arr => {
   for (let i = 0; i < arr.length; i++) {
 
     for (let j = 0; j < arr.length - 1; j++) {
-      
+
       if( arr[j].edad > arr[j + 1].edad ){
 
         aux = arr[j]
@@ -34,13 +35,14 @@ const ordenar = arr => {
       }
       
     }
-    
+
   }
 
 }
 
 ordenar(estudiantes)
 console.log( estudiantes )
+
 
 
 
@@ -56,16 +58,15 @@ let matriz = [
 
 const principal = mat => {
 
-  let acc = 1
+  // let acc = 1
 
   for (let i = 0; i < mat.length; i++) {
+
+
+      
+    mat[i][i] = mat[i][i] + 1 
     
-    if( mat[i][i] % 5 === 0 ){
-
-      acc *= mat[i][i]
-
-    }
-
+    
   }
 
   return acc
@@ -73,34 +74,36 @@ const principal = mat => {
 }
 
 
-// RECORRER LA COLUMNA DE LA POSICION 0 Y SUMAR LOS 
+// RECORRER LA COLUMNA DE LA POSICION 1 Y SUMAR LOS 
 // NUMEROS QUE SEAN PARES Y MAYORES QUE  15
 
 let matriz2 = [
 
     [25, 31],
     [9, 27],
-    [30, 14],
-    [58, 16],
+    [30,],
+    [58, 22],
 ];
 
-const recorrerColCero = mat =>{
+const recorrerColCero = mat => {
 
   let acc = 0
-  for (let i = 0; i < array.length; i++) {
-    
-    if( mat[i][0] % 2 === 0 && mat[i][0] > 15 ){
 
-      acc += mat[i][0]
+  for (let i = 0; i < mat.length; i++) {
+   
+    if( mat[i][1] !== undefined ){
 
-    }
-    
+      if( mat[i][1] % 2 === 0 && mat[i][1] > 15){
+
+       acc += mat[i][1]
+
+      }
+    }   
   }
 
   return acc
 
 }
-
 
 // ORDENAR EL SIGUIENTE ARREGLO DE FORMA DESCENDENTE 
 // UNICAMENTE SI RECIBIMOS POR PARAMETROS LA INDICACION,
@@ -108,24 +111,22 @@ const recorrerColCero = mat =>{
 
 let numeros = [ 522, 122, 2, 155, 741]
 
-const ordenarDescendente = ( arr, indicacion )=>{
+const ordenar2 = (arr, indicacion)=>{
 
   if( indicacion === undefined ){
-    console.log( "Lo siento, no recibi la indicacion" )
-    return 
+    return
   }
 
-  let temp;
-
+  let aux;
   for (let i = 0; i < arr.length; i++) {
 
     for (let j = 0; j < arr.length - 1; j++) {
-      
+
       if( arr[j] < arr[j + 1] ){
 
-        temp = arr[j]
+        aux = arr[j]
         arr[j] = arr[j + 1]
-        arr[j + 1] = temp
+        arr[j + 1] = aux
 
       }
       
@@ -135,17 +136,14 @@ const ordenarDescendente = ( arr, indicacion )=>{
 
 }
 
-ordenarDescendente(numeros)
-console.log( numeros)
-
 
 // SUMAR LOS ELEMENTOS IMPARES DE LA DIAGONAL SECUNDARIA
 
 let matriz3 = [
 
-  [25, 31, 12],
-  [10, 27, 13],
-  [10, 27, 21],
+  [25, 31, 12], // 12
+  [10, 27, 13], // 27
+  [10, 27, 21], // 10
 
 ];
 
@@ -153,15 +151,15 @@ const secundaria = mat =>{
 
   let acc = 0
 
-  for (let i = 0; i < mat.length; i++) {
-   
-    if( mat[i][mat.length - 1 - i] % 2 !== 0 ){
+  for (let i = 2; i < mat.length; i++) {
 
-      acc += mat[i][mat.length - 1 - i]
-
+    if( mat[i][ mat.length - 1 - i ] % 2 !== 0){
+      acc += mat[i][ mat.length - 1 - i ]
     }
     
   }
+
+  return acc
 
 }
 
@@ -179,23 +177,22 @@ let matrix = [
 const recorrerMat = mat => {
 
   for (let i = 0; i < mat.length; i++) {
-
+    
     for (let j = 0; j < mat[i].length; j++) {
-      
 
-      if( mat[i][j] < 0 ){
+      if( mat[i][j] < 0){
 
-        mat[i][j] = mat[i][j] * (- 1)
+       mat[i][j] = mat[i][j] * (-1)
 
       }
-
+      
     }
-    
+
   }
 
 }
 
 recorrerMat(matrix)
-console.table( matrix )
+console.table(matrix)
 
-
+console.log()

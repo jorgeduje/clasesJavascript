@@ -21,7 +21,7 @@ const ordenar = arr =>{
         for (let j = 0; j < arr.length - 1; j++) {
 
            
-            if( arr[j].titularCuenta > arr[j + 1] ){
+            if( arr[j] > arr[j + 1] ){
 
                 aux = arr[j] // guardo el 15 en mi variable aux
                 arr[j] = arr[j + 1] //  15 y ahora es un 2
